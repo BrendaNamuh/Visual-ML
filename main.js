@@ -76,25 +76,26 @@ var coeff = [];
 /*Fill array */
 d3.csv(linearFile, function(data){ 
   for (var i =0; i<data.length; i++){
-    coeff.push([ data[i].m, data[i].b ]);
+    coeff.push([ data[i].m, data[i].b, data[i].cost ]);
   }
 });
 
 
 function getLinearEquation(val){
-  return `${coeff[val][0]}x + ${coeff[val][1]}`
+  return `${parseFloat(coeff[val][0]).toFixed(2)}x + ${parseFloat(coeff[val][1]).toFixed(2)}`
 }
+
 
 function updateLine(val){
   let m = parseFloat(coeff[val][0]).toFixed(2);
   let b = parseFloat(coeff[val][1]).toFixed(2);
   console.log("This is m "+ m)
   console.log("This is b "+ b)
-  y1 = (m*1)+b;
-  y2 = (m*14)+b;
-  console.log("This is y1 "+ parseFloat(y1).toFixed(2));
-  console.log("This is y2 "+ parseFloat(y2).toFixed(2));
-  return [parseFloat(y1).toFixed(2),parseFloat(y2).toFixed(2)];
+  y1 = (m*1)+b; y1 = parseFloat(y1).toFixed(2);
+  y2 = (m*14)+b; y2  = parseFloat(y2).toFixed(2);
+  console.log("This is y1 "+ y1);
+  console.log("This is y2 "+ y2);
+  return [y1,y2];
 }
 
 
@@ -108,8 +109,8 @@ cost_box.innerText = 0;
 document.getElementById("custom-slider").addEventListener("input",function(event){
   
   let value = event.target.value;
-  document.getElementById("current-value").innerText = value;
-  cost_box.innerText = value;
+  //document.getElementById("current-value").innerText = value;
+  cost_box.innerText = `${parseFloat(coeff[value][2]).toFixed(2)}`;
   equation_box.innerText = getLinearEquation(value);
   
 
@@ -135,7 +136,7 @@ document.getElementById("custom-slider").addEventListener("input",function(event
    //console.log(typeof updateLine(value)[1])
    //console.log(updateLine(value)[1])
    //console.log(parseFloat(yScale(updateLine(value)[1])).toFixed(0).toString())
-   .attr('y2',parseFloat(yScale(updateLine(value)[1])).toFixed(0).toString() )
+   .attr('y2',(yScale(updateLine(value)[1])).toString() )
    //console.log(parseFloat(yScale(updateLine(value)[1])).toFixed(0).toString())
    //.attr('y1', yScale("1"))
    //.attr('y2', yScale("100000"))
