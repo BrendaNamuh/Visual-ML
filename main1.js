@@ -1,4 +1,4 @@
-let filename = 'http://localhost:8000/classification.csv';
+let filename = 'http://localhost:8000/Salary_Data.csv';
 
 // set the dimensions and margins of the graph 10,30,30,60
 var margin = {top: 10, right: 30, bottom: 30, left: 60},
@@ -22,7 +22,7 @@ d3.csv(filename, function(data){
   
   // X axis 
   var xScale = d3.scaleLinear()
-    .domain([0, 50])
+    .domain([0, 15])
     .range([0, width - margin.left - margin.right]);
     //console.log(width - margin.left - margin.right);
   svg
@@ -32,7 +32,7 @@ d3.csv(filename, function(data){
 
   // Y axis 
   var yScale = d3.scaleLinear()
-    .domain([0, 100])
+    .domain([0, 150000])
     .range([height  - margin.top - margin.bottom, 0]);
     //console.log(height  - margin.top - margin.bottom)
     
@@ -48,20 +48,11 @@ d3.csv(filename, function(data){
     .data(data)
     .enter()
     .append("circle")
-      .attr("cx", function (d) {  return xScale(d.age) } )
-      .attr("cy", function (d) { return yScale(d.interest)} )
+      .attr("cx", function (d) {  return xScale(d.Years) } )
+      .attr("cy", function (d) { return yScale(d.Salary)} )
       .attr("r", 5)
       .style("fill", "#95c2a1");
 
-    
-    svg.append('line')
-    .attr('x1',xScale(0))
-    .attr('x2',xScale(14))
-    .attr('y1',yScale(0))
-    .attr('y2',yScale(0))
-    .attr("stroke-width", 3)
-    .attr("stroke", "#5c8065")
-    .attr("id", "id");
     
     svg.append('line')
     .attr('x1',xScale(0))
@@ -77,19 +68,19 @@ d3.csv(filename, function(data){
 
 
 
-/*
+
 /* Reading the COEFFS*/
 var linearFile = 'http://localhost:8000/LR_DATA.csv'
 var coeff = [];
 
-/*Fill array *//*
+/*Fill array */
 d3.csv(linearFile, function(data){ 
   for (var i =0; i<data.length; i++){
     coeff.push([ data[i].m, data[i].b, data[i].cost ]);
   }
-});*/
+});
 
-/*
+
 function getLinearEquation(val){
   return `${parseFloat(coeff[val][0]).toFixed(2)}x + ${parseFloat(coeff[val][1]).toFixed(2)}`
 }
@@ -105,16 +96,16 @@ function updateLine(val){
   console.log("This is y1 "+ y1);
   console.log("This is y2 "+ y2);
   return [y1,y2];
-}*/
+}
 
 
-/*Initialize equation and cost values *//*
+/*Initialize equation and cost values */
 const equation_box = document.querySelector("#equation-container");
 const cost_box = document.querySelector("#cost-container");
 equation_box.innerHTML = 0;
-cost_box.innerText = 0; */
+cost_box.innerText = 0;
 
-/*SLIDER BLOCK*/ /*
+/*SLIDER BLOCK*/ 
 document.getElementById("custom-slider").addEventListener("input",function(event){
   
   let value = event.target.value;
@@ -163,7 +154,7 @@ document.getElementById("custom-slider").addEventListener("input",function(event
 
 });
 
-*/
+
 
 
 
