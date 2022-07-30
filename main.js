@@ -19,6 +19,17 @@ svg.append("line").attr("x1", 0).attr("x2", height/2)
 
 //Read Data
 d3.csv(filename, function(data){ 
+  var zeros = []
+  var ones = []
+
+  for (var i = 0;i<data.length; i++){
+    if (data[i].success == 0.0){
+      zeros.push([data[i].age, data[i].interest]);
+    }
+    else{ones.push([data[i].age, data[i].interest]);}
+
+  }
+  console.log(ones)
   
   // X axis 
   var xScale = d3.scaleLinear()
@@ -45,81 +56,84 @@ d3.csv(filename, function(data){
   // Add Scatter Dots
   svg.append('g')
     .selectAll("dot")
-    .data(data)
+    .data(zeros)
     .enter()
     .append("circle")
-      .attr("cx", function (d) {  return xScale(d.age) } )
-      .attr("cy", function (d) { return yScale(d.interest)} )
+      .attr("cx", function (d) {  return xScale(d[0]) } ) // d refers to dataset specified in .data
+      .attr("cy", function (d) { return yScale(d[1])} )// goes row by row plotting intrest column of row
       .attr("r", 5)
       .style("fill", "#95c2a1");
 
+  svg.append('g')
+    .selectAll("dot")
+    .data(ones)
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) {  return xScale(d[0]) } ) // d refers to dataset specified in .data
+      .attr("cy", function (d) { return yScale(d[1])} )// goes row by row plotting intrest column of row
+      .attr("r", 5)
+      .style("fill", "pink");
+
     
+ 
+    /*
     svg.append('line')
     .attr('x1',xScale(0))
-    .attr('x2',xScale(14))
+    .attr('x2',xScale(45))
     .attr('y1',yScale(0))
     .attr('y2',yScale(0))
     .attr("stroke-width", 3)
     .attr("stroke", "#5c8065")
-    .attr("id", "id");
-    
-    svg.append('line')
-    .attr('x1',xScale(0))
-    .attr('x2',xScale(14))
-    .attr('y1',yScale(0))
-    .attr('y2',yScale(0))
-    .attr("stroke-width", 3)
-    .attr("stroke", "#5c8065")
-    .attr("id", "id");
+    .attr("id", "id");*/
     
 //});
   
 
 
 
-/*
 /* Reading the COEFFS*/
-var linearFile = 'http://localhost:8000/LR_DATA.csv'
+var linearFile = 'http://localhost:8000/SVM_DATA.csv'
 var coeff = [];
 
-/*Fill array *//*
+/*Fill array */
 d3.csv(linearFile, function(data){ 
   for (var i =0; i<data.length; i++){
-    coeff.push([ data[i].m, data[i].b, data[i].cost ]);
+    coeff.push([ data[i].w1, data[i].w2, data[i].b ]);
   }
-});*/
+});
 
-/*
+
 function getLinearEquation(val){
-  return `${parseFloat(coeff[val][0]).toFixed(2)}x + ${parseFloat(coeff[val][1]).toFixed(2)}`
+  return `${parseFloat(coeff[val][0]).toFixed(0)}x1 + ${parseFloat(coeff[val][1]).toFixed(0)}x2 - ${parseFloat(coeff[val][2]).toFixed(0)} = 0`
 }
 
 
 function updateLine(val){
-  let m = parseFloat(coeff[val][0]).toFixed(2);
-  let b = parseFloat(coeff[val][1]).toFixed(2);
-  console.log("This is m "+ m)
-  console.log("This is b "+ b)
-  y1 = (m*1)+b; y1 = parseFloat(y1).toFixed(2);
-  y2 = (m*14)+b; y2  = parseFloat(y2).toFixed(2);
+  let w1 = parseFloat(coeff[val][0]).toFixed(2);
+  let w2 = parseFloat(coeff[val][1]).toFixed(2);
+  let b = parseFloat(coeff[val][2]).toFixed(2);
+  //console.log("This is m "+ w1)
+  //console.log("This is b "+ b)
+  y1 = (b/w2); y1 = parseFloat(y1).toFixed(2);
+  y2 = (b - (w1*45))/w2; y2  = parseFloat(y2).toFixed(2);
   console.log("This is y1 "+ y1);
   console.log("This is y2 "+ y2);
   return [y1,y2];
-}*/
+}
 
 
-/*Initialize equation and cost values *//*
+/*Initialize equation and cost values */
 const equation_box = document.querySelector("#equation-container");
 const cost_box = document.querySelector("#cost-container");
 equation_box.innerHTML = 0;
-cost_box.innerText = 0; */
+cost_box.innerText = 0; 
 
-/*SLIDER BLOCK*/ /*
+/*SLIDER BLOCK*/ 
 document.getElementById("custom-slider").addEventListener("input",function(event){
   
   let value = event.target.value;
   //document.getElementById("current-value").innerText = value;
-  cost_box.innerText = `${parseFloat(coeff[value][2]).toFixed(2)}`;
+  cost_box.innerText = `${parseFloat(coeff[value][2]).toFixed(0)}`;
   equation_box.innerText = getLinearEquation(value);
   
 
@@ -134,7 +148,7 @@ document.getElementById("custom-slider").addEventListener("input",function(event
    d3.select("#id").remove();
    svg.append('line')
    .attr('x1',xScale(0))
-   .attr('x2',xScale(14))
+   .attr('x2',xScale(45))
    //.attr('y1',yScale(1))
    //.attr('y2',yScale(5))
    //console.log(yScale(updateLine(value)[0]))
@@ -163,7 +177,7 @@ document.getElementById("custom-slider").addEventListener("input",function(event
 
 });
 
-*/
+
 
 
 
