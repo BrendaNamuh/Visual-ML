@@ -17,11 +17,26 @@
 <body style="background-color:#ffff">
  Hello. This is the text, right here.
   <div id ="chart-container"></div>
+  
 
   <div id = "rhs" >
-  <div id = "equation-container" ></div>
-  <div id = "cost-container" ></div> 
-  
+    <!-- Dropdown Start -->
+    <div class="dropdown">
+      <div class="select">
+        <span class="selected"> Select An Algo. </span>
+        <div class="caret"></div>
+      </div>
+      <ul class="menu">
+        <li>Linear Regression</li>
+        <li>SVM</li>
+      </ul>
+    </div>
+    <!--End of Dropdown-->
+    
+
+    <div id = "equation-container" ></div>
+    <div id = "cost-container" ></div> 
+    
 
 
 
@@ -34,10 +49,10 @@
       <span id= "current-value">0</span>
       </div>
 
-      <input type="range" id="custom-slider" min="0" max="1000" value="0" steps="1">
+      <input type="range" id="custom-slider" min="0" max="100" value="0" steps="1">
       <div class="range"> 
         <div>0</div>
-        <div>1000</div>
+        <div>100</div>
       </div>
 
     </div>
@@ -46,7 +61,7 @@
   </div> 
 
 
-  <script src= "http://localhost:8000/main.js"></script>
+  <script type="module" src= "http://localhost:8000/main.js"></script>
     
 
     
