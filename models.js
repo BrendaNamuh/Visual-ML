@@ -129,4 +129,9 @@ export default class SVM extends Model{
     
 }
 
-class LinearRegression extends Model{}
+class LinearRegression extends Model{
+
+
+
+    
+}
