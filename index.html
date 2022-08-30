@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Visualizing ML Algorithms</title>
+  <title>ML Algorithms Demo</title>
   <meta name="description" content="Visualizing ML Algorithms page">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
   <link rel="stylesheet" href="http://localhost:8000/style.css">
@@ -15,15 +15,17 @@
 
 
 <body style="background-color:#ffff">
- Hello. This is the text, right here.
+ Simple ML Algorithm Demo.
+ <div id ="footnote">Written in Javascript (d3.js). Made by Brenda Namuhoranye, 2022</div>
   <div id ="chart-container"></div>
-  
 
   <div id = "rhs" >
+    <span id="epoch_label">Epochs</span>
+   
     <!-- Dropdown Start -->
     <div class="dropdown">
       <div class="select">
-        <span class="selected"> Select An Algo. </span>
+        <span class="selected"> Select An Algorithm </span>
         <div class="caret"></div>
       </div>
       <ul class="menu">
@@ -34,34 +36,43 @@
     <!--End of Dropdown-->
     
 
-    <div id = "equation-container" ></div>
-    <div id = "cost-container" ></div> 
+    <div id = "equation-container" >
+      <span id="equation_label">Equation</span>
+      <span id="equation"></span>
+    </div>
+    <div id = "cost-container" >
+      <span id="cost_label">Cost</span>
+      <span id="cost"></span>
+    </div>
+
     
 
 
 
 
   <!-- Range Slider -->
-    <div class= "center">
+    <!--<div class= "center">-->
       
     <div class= "slider">
+
       <div class= "show-value">
       <span id= "current-value">0</span>
       </div>
 
-      <input type="range" id="custom-slider" min="0" max="100" value="0" steps="1">
+      <input type="range" id="custom-slider" min="0" max="" value="0" steps="1">
       <div class="range"> 
-        <div>0</div>
-        <div>100</div>
+        <div id="slider_min">0</div>
+        <div id="slider_max"></div>
       </div>
 
     </div>
-    </div>
     <!--End of Range Slider-->
-  </div> 
+  </div> <!--End of RHS -->
+  <!--</div> -->
 
 
   <script type="module" src= "http://localhost:8000/main.js"></script>
+
     
 
     

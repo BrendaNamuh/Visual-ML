@@ -12,14 +12,14 @@
 #chart-container{
     position:absolute;
     background-color: #ffff;
-    left: 2%;
-    top:4%;
-    width: 700px;
-    height: 700px;
-    border:2px solid #022b14;
+    left: -1%;
+    top:6%;
+    width: 750px;
+    height: 750px;
+    /*border:2px solid #022b14;*/
     border:none;
-    border-radius: 5%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /*How far left or rights the shadow is offset, "" up/down, blur/how far out shadow expands, spread:*/
+    /*border-radius: 5%;*/
+    /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/ /*How far left or rights the shadow is offset, "" up/down, blur/how far out shadow expands, spread:*/
     
 
 
@@ -28,10 +28,12 @@
 #rhs{
     position:relative;
     width: 600px;
-    height: 700px;
+    height: 690px;
     top:4%;
     left: 55%;
-    border:2px solid #022b14;
+    
+    
+    /*border:2px solid #022b14;*/
 
 }
 
@@ -39,7 +41,8 @@
 .dropdown{
     min-width: 10em;
     position:absolute;
-    left: 5%;
+    left:5%;
+    top:5%;
     width:530px;
     
     
@@ -50,12 +53,13 @@
 }
 
 .select{
+    top:15%;
     background:#ffff;
     color:#022b14;
     display:flex;
     justify-content:space-between;
     align-items: center;
-    border: 2px #022b14 solid;
+    /*border: 2px #022b14 solid;*/
     border-radius: 0.5em;
     padding: 1em;
     cursor: pointer;
@@ -88,7 +92,7 @@
     list-style: none;
     padding:0.2em 0.5em;
     background: #ffff;
-    border: 1px #022b14 solid;
+    /*border: 1px #022b14 solid;*/
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 0.5em;
     color: #022b14;
@@ -130,13 +134,27 @@
 
 
 
+#footnote{
+    
+    position: absolute;
+    margin-top: 50%;
+    margin-left: 63%;
+    color: rgb(235, 231, 231);
 
+  
 
+}
+
+#epoch_label{
+    position: absolute;
+    top:90%;
+    left:5%; 
+}
 
 #equation-container{
     
     position:absolute;
-    top: 40%;
+    top: 35%;
     left: 5%;
     width: 295px;
     height: 150px;
@@ -147,16 +165,38 @@
     border-radius: 10%;
     text-decoration: none;/*Makes innertext follow css styling*/
     text-align: center;
-    line-height: 150px;
+    
+    /*line-height: 150px;*/
+    
     
    
    
     
 }
 
+#equation_label{
+    display: block;
+    font-size: medium;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+
+}
+#equation{
+    display: block;
+    position: relative;
+    top: 30%;
+    font-size: large;
+   ;
+ 
+}
+    
+
+
 #cost-container{
     position:absolute;
-    top: 40%;
+    top: 35%;
     left: 68%;
     width: 150px;
     height: 150px;
@@ -167,22 +207,37 @@
     border-radius: 10%;
     text-decoration: none;/*Makes innertext follow css styling*/
     text-align: center;
-    line-height: 150px;
+    
 }
-
+#cost_label{
+    display: block;
+    font-size: medium;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+   
+    
+}
+#cost{
+    display: block;
+    position:relative;
+    top:30%;
+    font-size: large;
+    
+   
+}
 
 /* RANGE SLIDER */
 
-.center{
-    position:absolute;
-    top:75%;
-    left:5%; 
-}
 
 .slider{
     width:560px;
     height:100px;
-    border:2px solid #022b14;
+    
+    position: absolute;
+    top:75%;
+    left:5%; 
+    /*border:2px solid #022b14;*/
    
 }
 
@@ -202,8 +257,9 @@
     position: absolute;
     width:40px; /*Bckgrnd size*/
     height:40px;
-    background:#5c8065; /*Colour of text's bckgrd */
-    color:rgb(245, 244, 244); /*Colour of text*/
+    /*background:#557181; ; /*Colour of text's bckgrd */
+    color:rgb(0, 0, 0); /*Colour of text*/
+    /*border:2px solid #022b14;*/
     text-align:center;
     line-height:40px;
     border-radius:0%; /*Square to circle bckgrnd*/
@@ -227,6 +283,8 @@
     -webkit-appearance: none;
     width:100%;
     height:2px;
+    color:rgb(245, 244, 244); /*Colour of text*/
+    text-align:center;
     background:#022b14;
     border-radius:50%;
     outline:none;
@@ -236,10 +294,10 @@
 /*Styles the slider thumb*/
 .slider input[type="range"]::-webkit-slider-thumb{
     -webkit-appearance:none;
-    width:30px;
-    height:30px;
-    background:#5c8065;
-    border-radius:50%;
+    width:25px;
+    height:35px;
+    background: #86b1ca; 
+    border-radius:20%;
     cursor:pointer;
     
 }
@@ -259,3 +317,4 @@
 .slider .range div:nth-child(2){
     right:-2%;
 }
+
