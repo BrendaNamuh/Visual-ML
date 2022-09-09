@@ -60,7 +60,7 @@ options.forEach(option=>{
   switch(curr_algo){
     case "SVM":
       console.log("You clicked SVM")
-      curr_model = new models.SVM("https://brendanamuh.github.io/classification.csv",'https://brendanamuh.github.io/SVM_DATA.csv',svg);
+      curr_model = new models.SVM("https://brendanamuh.github.io/Visual-ML/classification.csv",'https://brendanamuh.github.io/Visual-ML/SVM_DATA.csv',svg);
       curr_model.setPlot(["pink","orange"], ["0.0","1.0"],width,height,margin);
       //Set Slider 
       document.getElementById('slider_max').textContent = "100";
@@ -76,7 +76,7 @@ options.forEach(option=>{
       break;
 
     case "Linear Regression":
-      curr_model = new models.LinearRegression("https://brendanamuh.github.io/Salary_Data.csv",'https://brendanamuh.github.io/LR_DATA.csv',svg);
+      curr_model = new models.LinearRegression("https://brendanamuh.github.io/Visual-ML/Salary_Data.csv",'https://brendanamuh.github.io/Visual-ML/LR_DATA.csv',svg);
       curr_model.setPlot(width,height,margin);
        //Set Slider 
       document.getElementById("custom-slider").max = 15;
