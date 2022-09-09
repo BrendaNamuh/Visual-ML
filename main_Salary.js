@@ -1,4 +1,4 @@
-let filename = 'http://localhost:8000/Salary_Data.csv';
+let filename = 'https://brendanamuh.github.io/Salary_Data.csv';
 
 // set the dimensions and margins of the graph 10,30,30,60
 var margin = {top: 10, right: 30, bottom: 30, left: 60},
@@ -70,7 +70,7 @@ d3.csv(filename, function(data){
 
 
 /* Reading the COEFFS*/
-var linearFile = 'http://localhost:8000/LR_DATA.csv'
+var linearFile = 'https://brendanamuh.github.io/LR_DATA.csv'
 var coeff = [];
 
 /*Fill array */
