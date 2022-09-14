@@ -79,9 +79,9 @@ options.forEach(option=>{
       curr_model = new models.LinearRegression("https://brendanamuh.github.io/Visual-ML/Salary_Data.csv",'https://brendanamuh.github.io/Visual-ML/LR_DATA.csv',svg);
       curr_model.setPlot(width,height,margin);
        //Set Slider 
-      document.getElementById("custom-slider").max = 15;
+      document.getElementById("custom-slider").max = 100;
       
-      document.getElementById('slider_max').textContent = "15"; // this.epochs
+      document.getElementById('slider_max').textContent = "100"; // this.epochs
       document.getElementById("custom-slider").value = 0;
       document.getElementById("current-value").innerText = 0;
       document.querySelector("#equation").innerText =0;
