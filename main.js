@@ -74,7 +74,8 @@ options.forEach(option=>{
       domElement.style.top = 0;  
       domElement.style.left = 0; 
       break;
-
+    
+    
     case "Linear Regression":
       curr_model = new models.LinearRegression("https://brendanamuh.github.io/Visual-ML/Salary_Data.csv",'https://brendanamuh.github.io/Visual-ML/LR_DATA.csv',svg);
       curr_model.setPlot(width,height,margin);
