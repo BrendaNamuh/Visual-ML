@@ -220,7 +220,7 @@ export class SVM extends Model{
 
     getMetrics(val){ var cost = this.coeff[val].cost/10000000000;
         return[`${parseFloat(this.coeff[val].w1).toFixed(0)} X₁ + ${parseFloat(this.coeff[val].w2).toFixed(0)} X₂ - ${parseFloat(this.coeff[val].b).toFixed(2)} = 0`,
-        `${parseFloat(cost).toFixed} x 10 ¹⁰`]; //Should this not be this.coeff[val][3]
+        `${parseFloat(cost).toFixed(1)} x 10 ¹⁰`]; //Should this not be this.coeff[val][3]
     }
     updateLine(val){
     
@@ -252,7 +252,7 @@ export class LinearRegression extends Model{
         /*return[`${parseFloat(this.coeff[val].m).toFixed(1)} X + ${parseFloat(this.coeff[val].b).toFixed(1)}`,
         `${parseFloat(this.coeff[val].cost).toFixed(0)}`];*/
         return [`${parseFloat(this.coeff[val].m1).toFixed(0)}x + ${parseFloat(this.coeff[val].b).toFixed(2)}`,
-        `${parseFloat(cost).toFixed} x 10 ¹⁰`];
+        `${parseFloat(cost).toFixed(1)} x 10 ¹⁰`];
     }
 
     updateLine(val){
