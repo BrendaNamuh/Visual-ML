@@ -77,7 +77,7 @@ options.forEach(option=>{
     
     
     case "Linear Regression":
-      curr_model = new models.LinearRegression("https://brendanamuh.github.io/Visual-ML/Salary_Data.csv",'https://brendanamuh.github.io/Visual-ML/LR_DATA.csv',svg);
+      curr_model = new models.LinearRegression("https://brendanamuh.github.io/Visual-ML/PortlandHousePrices.csv",'https://brendanamuh.github.io/Visual-ML/LR_DATA.csv',svg);
       curr_model.setPlot(width,height,margin);
        //Set Slider 
       document.getElementById("custom-slider").max = 100;
