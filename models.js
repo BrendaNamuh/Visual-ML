@@ -23,13 +23,13 @@ class Model{
             }
             
         });
-        console.log("coebubiubiububff");
+      
         console.log(coeff);
-        console.log("coebubiubiububff");
+       
         this.coeff = coeff;
-        console.log("coebubiubiububff");
+       
         console.log(this.coeff);
-        console.log("coebubiubiububff");
+   
        
     }
     
@@ -267,6 +267,7 @@ export class LinearRegression extends Model{
         var y2 = (m*10)+b|| 0; y2  = parseFloat(y2).toFixed(2);
         console.log(y1);
         return [y1,y2];*/
+        console.log(this.coeff);
         let m1 = parseFloat(this.coeff[val][0]).toFixed(2);
   let m2 = parseFloat(this.coeff[val][1]).toFixed(2);
   let b = parseFloat(this.coeff[val][2]).toFixed(2);
