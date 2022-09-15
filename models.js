@@ -276,6 +276,7 @@ export class LinearRegression extends Model{
   console.log("This is m "+ m1)
   console.log("This is m2 "+ m2)
   console.log("This is b "+ b)
+  console.log((m1*1)+(m2*1)+b);
   y1 = (m1*1)+(m2*1)+b; y1 = parseFloat(y1).toFixed(2);
   y2 = (m1*4500)+(m2*5)+b; y2 = parseFloat(y2).toFixed(2);
   
