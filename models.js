@@ -8,7 +8,7 @@ class Model{
         this.xScale ;
         this.yScale ;
         var coeff = [] ;
-      
+      console.log("HERE");
 
 
         
@@ -16,10 +16,13 @@ class Model{
         var a = d3.csv(this.coefficientFile, function(data){  
             for (var i =0; i<data.length; i++){
                 coeff.push(data[i]);
+                
+        
+                
             }
             
         });
-       
+       console.log(coeff);
         this.coeff = coeff;
        
     }
@@ -38,10 +41,11 @@ class Model{
             
 
             //Determine Domains
-            var xdomain = d3.extent(data, function(d) { return parseInt(d.Years); });
+            var xdomain = d3.extent(data, function(d) { return parseInt(d.Size); });
             xdomain = [Math.min(0,xdomain[0]), Math.ceil(xdomain[1]/5)*5 ];
-            var ydomain = d3.extent(data, function(d) { return parseInt(d.Salary); });
+            var ydomain = d3.extent(data, function(d) { return parseInt(d.Price); });
             ydomain = [Math.min(0,ydomain[0]), Math.ceil(ydomain[1]/10000)*10000 ];
+            console.log(ydomain);
 
            
             
@@ -86,8 +90,8 @@ class Model{
             .data(data)
             .enter()
             .append("circle")
-                .attr("cx", function (d) {  return xScale(d.Years) } )
-                .attr("cy", function (d) { return yScale(d.Salary)} )
+                .attr("cx", function (d) {  return xScale(d.Size) } )
+                .attr("cy", function (d) { return yScale(d.Price)} )
                 .attr("r", 5)
                 .style("fill", "#95c2a1");
 
@@ -136,7 +140,7 @@ class Model{
              
             //Get Labels
             var xAxisLabel = d3.keys(data[0])[0];
-            var yAxisLabel = d3.keys(data[0])[1];
+            var yAxisLabel = d3.keys(data[0])[2];
 
 
             // Setting up the X and Y axis
@@ -239,14 +243,16 @@ export class LinearRegression extends Model{
 
     getMetrics(val){
         console.log(this.coeff[val].m);
-        return[`${parseFloat(this.coeff[val].m).toFixed(1)} X + ${parseFloat(this.coeff[val].b).toFixed(1)}`,
-        `${parseFloat(this.coeff[val].cost).toFixed(0)}`];
+        /*return[`${parseFloat(this.coeff[val].m).toFixed(1)} X + ${parseFloat(this.coeff[val].b).toFixed(1)}`,
+        `${parseFloat(this.coeff[val].cost).toFixed(0)}`];*/
+        return [`${parseFloat(coeff[val].m1).toFixed(2)}x + ${parseFloat(coeff[val].b).toFixed(2)}`,
+        `${parseFloat(coeff[val].cost).toFixed(2)}`]
     }
 
     updateLine(val){
         
     
-        let m = parseFloat(this.coeff[val].m).toFixed(2);
+        /*let m = parseFloat(this.coeff[val].m).toFixed(2);
         //let w2 = parseFloat(this.coeff[val][1]).toFixed(2);
         let b = parseFloat(this.coeff[val].b).toFixed(2);
         console.log(b);
@@ -254,7 +260,19 @@ export class LinearRegression extends Model{
         
         var y2 = (m*10)+b|| 0; y2  = parseFloat(y2).toFixed(2);
         console.log(y1);
-        return [y1,y2];
+        return [y1,y2];*/
+        let m1 = parseFloat(coeff[val][0]).toFixed(2);
+  let m2 = parseFloat(coeff[val][1]).toFixed(2);
+  let b = parseFloat(coeff[val][2]).toFixed(2);
+  console.log("This is m "+ m1)
+  console.log("This is m2 "+ m2)
+  console.log("This is b "+ b)
+  y1 = (m1*1)+(m2*1)+b; y1 = parseFloat(y1).toFixed(2);
+  y2 = (m1*4500)+(m2*5)+b; y2 = parseFloat(y2).toFixed(2);
+  
+  console.log("This is y1 "+ y1);
+  console.log("This is y2 "+ y2);
+  return [y1, y2];
     }
 
     
