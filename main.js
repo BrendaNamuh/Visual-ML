@@ -140,7 +140,7 @@ document.getElementById("custom-slider").addEventListener("input",function(event
    d3.select("#id").remove();
    svg.append('line')
    .attr('x1',curr_model.xScale(0))
-   .attr('x2',curr_model.xScale(45))
+   .attr('x2',curr_model.xScale(4500))
    .attr('y1',(curr_model.yScale(curr_model.updateLine(value)[0])).toString())
    .attr('y2',(curr_model.yScale(curr_model.updateLine(value)[1])).toString() )
    .attr("stroke-width", 3)
