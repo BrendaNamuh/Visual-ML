@@ -15,15 +15,19 @@ class Model{
         // Fill Coefficients 
         var a = d3.csv(this.coefficientFile, function(data){  
             for (var i =0; i<data.length; i++){
-                coeff.push(data[i]);
+            coeff.push(data[i]);
                 
         
                 
             }
             
         });
-       console.log(coeff);
+        console.log(coeff);
+        console.log("coebubiubiububff");
         this.coeff = coeff;
+        console.log("coebubiubiububff");
+        console.log(this.coeff);
+        console.log("coebubiubiububff");
        
     }
     
@@ -51,7 +55,7 @@ class Model{
             
             //Get Labels
             var xAxisLabel = d3.keys(data[0])[0];
-            var yAxisLabel = d3.keys(data[0])[1];
+            var yAxisLabel = d3.keys(data[0])[2];
 
 
             // Setting up the X and Y axis
@@ -242,11 +246,11 @@ export class LinearRegression extends Model{
     }
 
     getMetrics(val){
-        console.log(this.coeff[val].m);
+        console.log(this.coeff);
         /*return[`${parseFloat(this.coeff[val].m).toFixed(1)} X + ${parseFloat(this.coeff[val].b).toFixed(1)}`,
         `${parseFloat(this.coeff[val].cost).toFixed(0)}`];*/
-        return [`${parseFloat(coeff[val].m1).toFixed(2)}x + ${parseFloat(coeff[val].b).toFixed(2)}`,
-        `${parseFloat(coeff[val].cost).toFixed(2)}`]
+        return [`${parseFloat(this.coeff[val].m).toFixed(2)}x + ${parseFloat(this.coeff[val].b).toFixed(2)}`,
+        `${parseFloat(this.coeff[val].cost).toFixed(2)}`]
     }
 
     updateLine(val){
@@ -261,9 +265,9 @@ export class LinearRegression extends Model{
         var y2 = (m*10)+b|| 0; y2  = parseFloat(y2).toFixed(2);
         console.log(y1);
         return [y1,y2];*/
-        let m1 = parseFloat(coeff[val][0]).toFixed(2);
-  let m2 = parseFloat(coeff[val][1]).toFixed(2);
-  let b = parseFloat(coeff[val][2]).toFixed(2);
+        let m1 = parseFloat(this.coeff[val][0]).toFixed(2);
+  let m2 = parseFloat(this.coeff[val][1]).toFixed(2);
+  let b = parseFloat(this.coeff[val][2]).toFixed(2);
   console.log("This is m "+ m1)
   console.log("This is m2 "+ m2)
   console.log("This is b "+ b)
