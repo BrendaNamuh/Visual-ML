@@ -280,12 +280,12 @@ export class LinearRegression extends Model{
   //y1 = (m1*1)+(m2*1)+b; 
   //y1 = parseFloat(y1).toFixed(2);
   //y1 = parseFloat((m1*1)+(m2*1)+b).toFixed(2);
-  y2 = (m1*4500)+(m2*5)+b;
-  y2 = parseFloat(y2).toFixed(2);
+  //y2 = (m1*4500)+(m2*5)+b;
+  //y2 = parseFloat(y2).toFixed(2);
   
   //console.log("This is y1 "+ y1);
-  console.log("This is y2 "+ y2);
-  return [parseFloat((m1*1)+(m2*1)+b).toFixed(2), y2];
+  //console.log("This is y2 "+ y2);
+  return [parseFloat((m1*1)+(m2*1)+b).toFixed(2), parseFloat(y2).toFixed((m1*4500)+(m2*5)+b);];
     }
 
     
