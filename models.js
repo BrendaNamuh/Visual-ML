@@ -9,6 +9,7 @@ class Model{
         this.yScale ;
         var coeff = [] ;
       console.log("HERE");
+      console.log("coebubiubiububff");
 
 
         
@@ -22,6 +23,7 @@ class Model{
             }
             
         });
+        console.log("coebubiubiububff");
         console.log(coeff);
         console.log("coebubiubiububff");
         this.coeff = coeff;
