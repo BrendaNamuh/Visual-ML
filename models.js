@@ -252,7 +252,7 @@ export class LinearRegression extends Model{
         /*return[`${parseFloat(this.coeff[val].m).toFixed(1)} X + ${parseFloat(this.coeff[val].b).toFixed(1)}`,
         `${parseFloat(this.coeff[val].cost).toFixed(0)}`];*/
         return [`${parseFloat(this.coeff[val].m1).toFixed(0)}x + ${parseFloat(this.coeff[val].b).toFixed(2)}`,
-        `${(this.coeff[val].cost).toExponential(1)}`]
+        `${((this.coeff[val].cost)).toExponential(1)}`]
     }
 
     updateLine(val){
