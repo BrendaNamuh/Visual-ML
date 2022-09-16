@@ -218,9 +218,9 @@ export class SVM extends Model{
         super.MulticolourScatter(colours, categories,width,height,margin,this.svg);
     }
 
-    getMetrics(val){ var cost = this.coeff[val].cost/10000000000;
+    getMetrics(val){ var cost = this.coeff[val].cost/10;
         return[`${parseFloat(this.coeff[val].w1).toFixed(0)} X₁ + ${parseFloat(this.coeff[val].w2).toFixed(0)} X₂ - ${parseFloat(this.coeff[val].b).toFixed(2)} = 0`,
-        `${parseFloat(cost).toFixed(1)} x 10 ¹⁰`]; //Should this not be this.coeff[val][3]
+        `${parseFloat(cost).toFixed(1)} x 10 ¹`]; //Should this not be this.coeff[val][3]
     }
     updateLine(val){
     
