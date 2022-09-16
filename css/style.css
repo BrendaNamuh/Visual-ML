@@ -10,7 +10,7 @@
 }
 
 #chart-container{
-    position:relative;
+    position:absolute;
     background-color: #ffff;
     left: -1%;
     top:6%;
