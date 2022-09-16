@@ -24,11 +24,9 @@ class Model{
             
         });
       
-        console.log(coeff);
        
         this.coeff = coeff;
-       
-        console.log(this.coeff);
+        
    
        
     }
@@ -131,10 +129,10 @@ class Model{
         d3.csv( this.scatterPointFile, function(data){ 
             
            
-            //data is an array where each row is an object. Learn more about how to parse this row/object 
+            //data is an array where each row is an object. 
             for (var i = 0;i<data.length; i++){
-                var curr_cat =  data[i].success; //SPECIFIC TO scatterPointFile = "http://localhost:8000/classification.csv"
-                coordinates[curr_cat].push([data[i].Age, data[i].Amount]); //SPECIFIC TO scatterPointFile = "http://localhost:8000/classification.csv"
+                var curr_cat =  data[i].success; //SPECIFIC TO scatterPointFile 
+                coordinates[curr_cat].push([data[i].Age, data[i].Amount]); 
               } 
               
             //Determine Domains
@@ -220,7 +218,7 @@ export class SVM extends Model{
 
     getMetrics(val){ var cost = this.coeff[val].cost*10;
         return[`${parseFloat(this.coeff[val].w1).toFixed(2)} X₁ + ${parseFloat(this.coeff[val].w2).toFixed(2)} X₂ - ${parseFloat(this.coeff[val].b).toFixed(2)} = 0`,
-        `${parseFloat(cost).toFixed(1)} x 10 ¹`]; //Should this not be this.coeff[val][3]
+        `${parseFloat(cost).toFixed(1)} x 10 ¹`]; 
     }
     updateLine(val){
     
@@ -228,7 +226,6 @@ export class SVM extends Model{
         let w2 = parseFloat(this.coeff[val].w2).toFixed(2);
         let b = parseFloat(this.coeff[val].b).toFixed(2);
         var y1 = (b/w2) || 0; y1 = parseFloat(y1).toFixed(2);
-        //console.log(y1);
         var y2 = (b - (w1*45))/w2 || 0; y2  = parseFloat(y2).toFixed(2);
         return [y1,y2];
     }
@@ -249,8 +246,6 @@ export class LinearRegression extends Model{
 
     getMetrics(val){
         var cost = this.coeff[val].cost/10000000000;
-        /*return[`${parseFloat(this.coeff[val].m).toFixed(1)} X + ${parseFloat(this.coeff[val].b).toFixed(1)}`,
-        `${parseFloat(this.coeff[val].cost).toFixed(0)}`];*/
         return [`${parseFloat(this.coeff[val].m1).toFixed(0)}x + ${parseFloat(this.coeff[val].b).toFixed(2)}`,
         `${parseFloat(cost).toFixed(1)} x 10 ¹⁰`];
     }
@@ -262,17 +257,16 @@ export class LinearRegression extends Model{
         let m1 = parseFloat(this.coeff[val].m1).toFixed(2);
         let m2 = parseFloat(this.coeff[val].m2).toFixed(2);
         let b = parseFloat(this.coeff[val].b).toFixed(2);
-        console.log("This is m "+ m1)
+        /*console.log("This is m "+ m1)
         console.log("This is m2 "+ m2)
-        console.log("This is b "+ b)
+        console.log("This is b "+ b)*/
         
-  
         var y1 = (m1*1)+(m2*1)+b; y1 = parseFloat(y1).toFixed(2);
         
         var y2 = (m1*4500)+(m2*5)+b; y2 = parseFloat(y2).toFixed(2);
         
-        console.log("This is y1 "+ y1);
-        console.log("This is y2 "+ y2);
+        /*console.log("This is y1 "+ y1);
+        console.log("This is y2 "+ y2);*/
         return [y1, y2];
     }
 

@@ -59,7 +59,6 @@ options.forEach(option=>{
   var curr_algo = event.target.innerText;
   switch(curr_algo){
     case "SVM":
-      console.log("You clicked SVM")
       curr_model = new models.SVM("https://brendanamuh.github.io/Visual-ML/classification.csv",'https://brendanamuh.github.io/Visual-ML/SVM_DATA.csv',svg);
       curr_model.setPlot(["pink","orange"], ["0.0","1.0"],width,height,margin);
       //Set Slider 
@@ -111,8 +110,6 @@ options.forEach(option=>{
 const equation_box = document.getElementById("equation");
 const cost_box = document.getElementById("cost");
 
-//equation_box.innerHTML = 0;
-//cost_box.innerText = 0; 
 
 /*SLIDER BLOCK*/ 
 document.getElementById("custom-slider").addEventListener("input",function(event){
@@ -120,7 +117,7 @@ document.getElementById("custom-slider").addEventListener("input",function(event
   let value = event.target.value;
   
   document.getElementById("current-value").innerText = value;
-  //console.log(curr_model.getMetrics(value)[0]);
+  
   equation_box.innerText = curr_model.getMetrics(value)[0];
   cost_box.innerText = curr_model.getMetrics(value)[1];//`${parseFloat(coeff[value][2]).toFixed(0)}`;
   
@@ -134,9 +131,7 @@ document.getElementById("custom-slider").addEventListener("input",function(event
   document.getElementById("current-value").style.left = `${value*100/max}%`;  
  
 
- 
-  console.log(typeof((curr_model.updateLine(value)[1])))
-  console.log(curr_model.yScale(curr_model.updateLine(value)[1]))
+
    d3.select("#id").remove();
    svg.append('line')
    .attr('x1',curr_model.xScale(0))
