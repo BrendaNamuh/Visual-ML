@@ -8,7 +8,7 @@ class Model{
         this.xScale ;
         this.yScale ;
         var coeff = [] ;
-      console.log("HERE");
+    
 
 
 
@@ -49,7 +49,7 @@ class Model{
             xdomain = [Math.min(0,xdomain[0]), Math.ceil(xdomain[1]/5)*5 ];
             var ydomain = d3.extent(data, function(d) { return parseInt(d.Price); });
             ydomain = [Math.min(0,ydomain[0]), Math.ceil(ydomain[1]/10000)*10000 ];
-            console.log(ydomain);
+            //console.log(ydomain);
 
            
             
