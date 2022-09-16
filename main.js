@@ -135,7 +135,7 @@ document.getElementById("custom-slider").addEventListener("input",function(event
  
 
  
-  
+  console.log(typeof((curr_model.updateLine(value)[1])))
   console.log(curr_model.yScale(curr_model.updateLine(value)[1]))
    d3.select("#id").remove();
    svg.append('line')
