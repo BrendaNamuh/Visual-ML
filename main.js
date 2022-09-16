@@ -142,6 +142,7 @@ document.getElementById("custom-slider").addEventListener("input",function(event
    .attr('x1',curr_model.xScale(0))
    .attr('x2',curr_model.xScale(4500))
    .attr('y1',(curr_model.yScale(curr_model.updateLine(value)[0])).toString())
+   console.log(curr_model.updateLine(value)[1])
    .attr('y2',(curr_model.yScale(curr_model.updateLine(value)[1])).toString() )
    .attr("stroke-width", 3)
    .attr("stroke", "#5c8065")

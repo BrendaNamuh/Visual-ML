@@ -256,27 +256,24 @@ export class LinearRegression extends Model{
     }
 
     updateLine(val){
+
         
     
-       
-        console.log(this.coeff[val]);
-        
-        console.log(this.coeff[val].m1);
         let m1 = parseFloat(this.coeff[val].m1).toFixed(2);
-  let m2 = parseFloat(this.coeff[val].m2).toFixed(2);
-  let b = parseFloat(this.coeff[val].b).toFixed(2);
-  console.log("This is m "+ m1)
-  console.log("This is m2 "+ m2)
-  console.log("This is b "+ b)
-  console.log(parseFloat((m1*1)+(m2*1)+b).toFixed(2));
+        let m2 = parseFloat(this.coeff[val].m2).toFixed(2);
+        let b = parseFloat(this.coeff[val].b).toFixed(2);
+        console.log("This is m "+ m1)
+        console.log("This is m2 "+ m2)
+        console.log("This is b "+ b)
+        console.log(parseFloat((m1*1)+(m2*1)+b).toFixed(2));
   
-  var y1 = (m1*1)+(m2*1)+b; y1 = parseFloat(y1).toFixed(2);
-  
-  var y2 = (m1*4500)+(m2*5)+b; y2 = parseFloat(y2).toFixed(2);
-  
-  console.log("This is y1 "+ y1);
-  console.log("This is y2 "+ y2);
-  return [y1, y2];
+        var y1 = (m1*1)+(m2*1)+b; y1 = parseFloat(y1).toFixed(2);
+        
+        var y2 = (m1*4500)+(m2*5)+b; y2 = parseFloat(y2).toFixed(2);
+        
+        console.log("This is y1 "+ y1);
+        console.log("This is y2 "+ y2);
+        return [y1, y2];
     }
 
     
