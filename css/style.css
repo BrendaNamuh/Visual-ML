@@ -10,7 +10,7 @@
 }
 
 #chart-container{
-    position:absolute;
+    position:relative;
     background-color: #ffff;
     left: -1%;
     top:6%;
@@ -20,10 +20,9 @@
     border:none;
     /*border-radius: 5%;*/
     /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/ /*How far left or rights the shadow is offset, "" up/down, blur/how far out shadow expands, spread:*/
-    
-
-
 }
+
+/*End of Graph Container styling*/
 
 #rhs{
     position:relative;
