@@ -264,7 +264,7 @@ export class LinearRegression extends Model{
         console.log(this.coeff[val].m1);
         let m1 = parseFloat(this.coeff[val].m1).toFixed(2);
   let m2 = parseFloat(this.coeff[val].m2).toFixed(2);
-  let b = parseFloat(this.coeff[val].cost).toFixed(2);
+  let b = parseFloat(this.coeff[val].b).toFixed(2);
   console.log("This is m "+ m1)
   console.log("This is m2 "+ m2)
   console.log("This is b "+ b)
