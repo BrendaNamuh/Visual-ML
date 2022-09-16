@@ -134,13 +134,13 @@ class Model{
             //data is an array where each row is an object. Learn more about how to parse this row/object 
             for (var i = 0;i<data.length; i++){
                 var curr_cat =  data[i].success; //SPECIFIC TO scatterPointFile = "http://localhost:8000/classification.csv"
-                coordinates[curr_cat].push([data[i].Age, data[i].Interest]); //SPECIFIC TO scatterPointFile = "http://localhost:8000/classification.csv"
+                coordinates[curr_cat].push([data[i].Age, data[i].Amount]); //SPECIFIC TO scatterPointFile = "http://localhost:8000/classification.csv"
               } 
               
             //Determine Domains
             var xdomain = d3.extent(data, function(d) { return parseInt(d.Age); });
             xdomain = [Math.min(0,xdomain[0]), Math.ceil(xdomain[1]/5)*5 ];
-            var ydomain = d3.extent(data, function(d) { return parseInt(d.Interest); });
+            var ydomain = d3.extent(data, function(d) { return parseInt(d.Amount); });
             ydomain = [Math.min(0,ydomain[0]), Math.ceil(ydomain[1]/5)*5 ];
             
              
@@ -162,7 +162,7 @@ class Model{
             .attr("text-anchor", "end")
             .attr("x", width - margin.left - margin.right)
             .attr("y", height -10)
-            .text("Interest");
+            .text("Amount ($)");
 
             
             yScale 
@@ -219,7 +219,7 @@ export class SVM extends Model{
     }
 
     getMetrics(val){ var cost = this.coeff[val].cost/10;
-        return[`${parseFloat(this.coeff[val].w1).toFixed(0)} X₁ + ${parseFloat(this.coeff[val].w2).toFixed(0)} X₂ - ${parseFloat(this.coeff[val].b).toFixed(2)} = 0`,
+        return[`${parseFloat(this.coeff[val].w1).toFixed(0)} X₁ + ${parseFloat(this.coeff[val].w2).toFixed(0)} X₂ - ${parseFloat(this.coeff[val].b).toFixed(0)} = 0`,
         `${parseFloat(cost).toFixed(1)} x 10 ¹`]; //Should this not be this.coeff[val][3]
     }
     updateLine(val){
