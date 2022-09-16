@@ -59,7 +59,7 @@ options.forEach(option=>{
   var curr_algo = event.target.innerText;
   switch(curr_algo){
     case "SVM":
-      curr_model = new models.SVM("https://brendanamuh.github.io/Visual-ML/classification.csv",'https://brendanamuh.github.io/Visual-ML/SVM_DATA.csv',svg);
+      curr_model = new models.SVM("https://brendanamuh.github.io/Visual-ML/datasets/classification.csv",'https://brendanamuh.github.io/Visual-ML/SVM_Coefficients.csv',svg);
       curr_model.setPlot(["pink","orange"], ["0.0","1.0"],width,height,margin);
       //Set Slider 
       document.getElementById('slider_max').textContent = "1000";
@@ -76,7 +76,7 @@ options.forEach(option=>{
     
     
     case "Linear Regression":
-      curr_model = new models.LinearRegression("https://brendanamuh.github.io/Visual-ML/PortlandHousePrices.csv",'https://brendanamuh.github.io/Visual-ML/LR_DATA.csv',svg);
+      curr_model = new models.LinearRegression("https://brendanamuh.github.io/Visual-ML/datasets/PortlandHousePrices.csv",'https://brendanamuh.github.io/Visual-ML/LR_Coefficients.csv',svg);
       curr_model.setPlot(width,height,margin);
        //Set Slider 
       document.getElementById("custom-slider").max = 100;
