@@ -63,8 +63,8 @@ options.forEach(option=>{
       curr_model = new models.SVM("https://brendanamuh.github.io/Visual-ML/classification.csv",'https://brendanamuh.github.io/Visual-ML/SVM_DATA.csv',svg);
       curr_model.setPlot(["pink","orange"], ["0.0","1.0"],width,height,margin);
       //Set Slider 
-      document.getElementById('slider_max').textContent = "100";
-      document.getElementById("custom-slider").max = 100;
+      document.getElementById('slider_max').textContent = "1000";
+      document.getElementById("custom-slider").max = 1000;
       document.getElementById("custom-slider").value = 0;
       document.getElementById("current-value").innerText = 0;
       document.querySelector("#equation").innerText =0;
