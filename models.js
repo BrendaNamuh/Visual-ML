@@ -10,31 +10,16 @@ class Model{
         var coeff = [] ;
     
 
-
-
-        
         // Fill Coefficients 
         var a = d3.csv(this.coefficientFile, function(data){  
             for (var i =0; i<data.length; i++){
-            coeff.push(data[i]);
-                
-        
-                
-            }
-            
+            coeff.push(data[i]);       
+            }          
         });
-      
-       
         this.coeff = coeff;
-        
-   
-       
     }
     
 
-    
-    
-    
     UnicolourScatter(width,height,margin,svg){
         svg.selectAll("*").remove();
       
@@ -202,11 +187,9 @@ class Model{
     });
     this.xScale = xScale;
     this.yScale = yScale;
-
-    }
-
-    
+    }   
 }
+
 export class SVM extends Model{
 
     constructor(scatterPointFile,coefficients_filename,svg){
@@ -220,8 +203,7 @@ export class SVM extends Model{
         return[`${parseFloat(this.coeff[val].w1).toFixed(2)} X₁ + ${parseFloat(this.coeff[val].w2).toFixed(2)} X₂ - ${parseFloat(this.coeff[val].b).toFixed(2)} = 0`,
         `${parseFloat(cost).toFixed(1)} x 10 ¹`]; 
     }
-    updateLine(val){
-    
+    updatePlot(val){
         let w1 = parseFloat(this.coeff[val].w1).toFixed(2);
         let w2 = parseFloat(this.coeff[val].w2).toFixed(2);
         let b = parseFloat(this.coeff[val].b).toFixed(2);
@@ -230,8 +212,6 @@ export class SVM extends Model{
         return [y1,y2];
     }
       
-      
-
     
 }
 export class LinearRegression extends Model{
@@ -250,28 +230,15 @@ export class LinearRegression extends Model{
         `${parseFloat(cost).toFixed(1)} x 10 ¹⁰`];
     }
 
-    updateLine(val){
-
-        
-    
+    updatePlot(val){
         let m1 = parseFloat(this.coeff[val].m1).toFixed(2);
         let m2 = parseFloat(this.coeff[val].m2).toFixed(2);
         let b = parseFloat(this.coeff[val].b).toFixed(2);
-        /*console.log("This is m "+ m1)
-        console.log("This is m2 "+ m2)
-        console.log("This is b "+ b)*/
-        
-        var y1 = (m1*1)+(m2*1)+b; y1 = parseFloat(y1).toFixed(2);
-        
+        var y1 = (m1*1)+(m2*1)+b; y1 = parseFloat(y1).toFixed(2); 
         var y2 = (m1*4500)+(m2*5)+b; y2 = parseFloat(y2).toFixed(2);
-        
-        /*console.log("This is y1 "+ y1);
-        console.log("This is y2 "+ y2);*/
+        if (y2.toString().length > 9) {y2 = y2/10;}
         return [y1, y2];
-    }
-
-    
-
+    } 
 
 }
 

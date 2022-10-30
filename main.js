@@ -34,9 +34,6 @@ svg
 
 
 
-
-
-
 //Dropdown options
 const dropdown = document.querySelector('.dropdown');
 
@@ -59,7 +56,7 @@ options.forEach(option=>{
   var curr_algo = event.target.innerText;
   switch(curr_algo){
     case "SVM":
-      curr_model = new models.SVM("https://brendanamuh.github.io/Visual-ML/datasets/classification.csv",'https://brendanamuh.github.io/Visual-ML/SVM_Coefficients.csv',svg);
+      curr_model = new models.SVM("./datasets/classification.csv",'./SVM_Coefficients.csv',svg);
       curr_model.setPlot(["pink","orange"], ["0.0","1.0"],width,height,margin);
       //Set Slider 
       document.getElementById('slider_max').textContent = "1000";
@@ -76,7 +73,7 @@ options.forEach(option=>{
     
     
     case "Linear Regression":
-      curr_model = new models.LinearRegression("https://brendanamuh.github.io/Visual-ML/datasets/PortlandHousePrices.csv",'https://brendanamuh.github.io/Visual-ML/LR_Coefficients.csv',svg);
+      curr_model = new models.LinearRegression("./datasets/PortlandHousePrices.csv",'./LR_Coefficients.csv',svg);
       curr_model.setPlot(width,height,margin);
        //Set Slider 
       document.getElementById("custom-slider").max = 100;
@@ -117,8 +114,9 @@ document.getElementById("custom-slider").addEventListener("input",function(event
   let value = event.target.value;
   
   document.getElementById("current-value").innerText = value;
-  
+  console.log( curr_model);
   equation_box.innerText = curr_model.getMetrics(value)[0];
+
   cost_box.innerText = curr_model.getMetrics(value)[1];//`${parseFloat(coeff[value][2]).toFixed(0)}`;
   
   
@@ -136,8 +134,8 @@ document.getElementById("custom-slider").addEventListener("input",function(event
    svg.append('line')
    .attr('x1',curr_model.xScale(0))
    .attr('x2',curr_model.xScale(4500))
-   .attr('y1',(curr_model.yScale(curr_model.updateLine(value)[0])).toString())
-   .attr('y2',(curr_model.yScale(curr_model.updateLine(value)[1])).toString() )
+   .attr('y1',(curr_model.yScale(curr_model.updatePlot(value)[0])).toString())
+   .attr('y2',(curr_model.yScale(curr_model.updatePlot(value)[1])).toString() )
    .attr("stroke-width", 3)
    .attr("stroke", "#5c8065")
    .attr("id", "id");
